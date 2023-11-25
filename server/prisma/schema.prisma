@@ -24,6 +24,7 @@ model Tarefas {
   id        String   @id @default(uuid())
   nome      String
   descricao String
+  concluido Boolean @default(false)
   criadoEm  DateTime @default(now())
   usuarioId String?
 
