@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -24,7 +25,7 @@ model Tarefas {
   id        String   @id @default(uuid())
   nome      String
   descricao String
-  concluido Boolean @default(false)
+  concluido Boolean  @default(false)
   criadoEm  DateTime @default(now())
   usuarioId String?
 

@@ -5,20 +5,23 @@ import bodyParser from "body-parser";
 const tarefasRouter = Router();
 const parser = bodyParser.json();
 
+
 tarefasRouter.get("/tarefas", async (req: Request, res: Response) => {
-  const tarefas = await api.tarefas.findMany();
+  const tarefas = await api.tarefas.findMany({orderBy: {
+    criadoEm: "desc"
+  }});
 
   res.status(200).send(tarefas);
 });
 
 tarefasRouter.get(
   "/tarefas/:tarefaId",
-  parser,
-  async (req: Request, res: Response) => {
+  parser,   async (req: Request, res: Response) => {
     const { tarefaId } = req.params;
     const tarefa = await api.tarefas.findUnique({
       where: {
         id: tarefaId,
+        
       },
     });
 
@@ -42,8 +45,7 @@ tarefasRouter.post("/tarefas", parser, async (req: Request, res: Response) => {
 });
 
 tarefasRouter.put(
-    "/tarefas/:tarefaId",
-  parser,
+  "/tarefas/:tarefaId",   parser,
   async (req: Request, res: Response) => {
     const { tarefaId } = req.params;
     const { nome, descricao, concluido, usuarioId } = req.body;
@@ -65,8 +67,7 @@ tarefasRouter.put(
 );
 
 tarefasRouter.delete(
-  "/tarefas/:tarefaId",
-  parser,
+  "/tarefas/:tarefaId",   parser,
   async (req: Request, res: Response) => {
     const { tarefaId } = req.params;
     await api.tarefas.delete({
