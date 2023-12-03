@@ -2,23 +2,32 @@ import { useNavigate } from "react-router-dom";
 import { TarefasProps } from "../../interfaces/interfaces";
 import Button from "../Button/Button";
 import Text from "../Text/Text";
+import { Container } from "./styles";
 
+function Tarefa({ descricao, nome, id, concluido }: TarefasProps) {
+  const navigate = useNavigate();
 
-function Tarefa({ descricao, nome, id }: TarefasProps) {
-  const navigate = useNavigate()
-  
   return (
-    <li>
-      <div>
-        <Text color="black" size="lg" weight="regular">
-          {nome}
-        </Text>
-        <Text color="black" size="md" weight="regular">
-          {descricao}
-        </Text>
+    <Container concluido={concluido}>
+      <Text color="branca" size="lg" weight="bold">
+        {nome}
+      </Text>
+      <Text color="branca" size="md" weight="regular">
+        {descricao}
+      </Text>
+
+      <div className="update-btn">
+        <Button
+          fontSize="md"
+          variant="delete"
+          onClick={() => {
+            navigate(`/alterar/${id}`);
+          }}
+        >
+          Alterar
+        </Button>
       </div>
-      <Button variant="primary" onClick={()=>{navigate(`/alterar/${id}`)}} >Alterar</Button>
-    </li>
+    </Container>
   );
 }
 

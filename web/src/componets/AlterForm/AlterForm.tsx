@@ -1,8 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { FormEvent, useEffect, useState } from "react";
 
-import Button from "./Button/Button";
-import { useTodos } from "../hooks/useTodos";
+import Button from "../Button/Button";
+import { useTodos } from "../../hooks/useTodos";
+import { Container } from "./styles";
+import Text from "../Text/Text";
 
 function AlterForm() {
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ function AlterForm() {
   }, []);
 
   return (
-    <form
+    <Container
       onSubmit={(e: FormEvent) => {
         e.preventDefault();
         handleUpdateTodo({ nome: title, desc, completed, todoId: id });
@@ -32,8 +34,12 @@ function AlterForm() {
       }}
     >
       {title === undefined ? (
-        <div className="title">
-          <label htmlFor="title">Título:</label>
+        <div className="input-wrapper">
+          <label htmlFor="title">
+            <Text color="branca" size="md" weight="bold">
+              Título:
+            </Text>
+          </label>
           <input
             type="text"
             name="title"
@@ -44,8 +50,12 @@ function AlterForm() {
           />
         </div>
       ) : (
-        <div className="title">
-          <label htmlFor="title">Título:</label>
+        <div className="input-wrapper">
+          <label htmlFor="title">
+            <Text color="branca" size="md" weight="bold">
+              Título:
+            </Text>
+          </label>
           <input
             type="text"
             name="title"
@@ -58,8 +68,12 @@ function AlterForm() {
       )}
 
       {desc === undefined ? (
-        <div className="desc">
-          <label htmlFor="desc">Descrição:</label>
+        <div className="input-wrapper">
+          <label htmlFor="desc">
+            <Text color="branca" size="md" weight="bold">
+              Descrição:
+            </Text>
+          </label>
           <input
             type="text"
             name="desc"
@@ -70,8 +84,12 @@ function AlterForm() {
           />
         </div>
       ) : (
-        <div className="desc">
-          <label htmlFor="desc">Descrição:</label>
+        <div className="input-wrapper">
+          <label htmlFor="desc">
+            <Text color="branca" size="md" weight="bold">
+              Descrição:
+            </Text>
+          </label>
           <input
             type="text"
             name="desc"
@@ -83,8 +101,12 @@ function AlterForm() {
         </div>
       )}
       {completed === undefined ? (
-        <div className="check">
-          <label htmlFor="completed">Concluído:</label>
+        <div className="input-wrapper">
+          <label htmlFor="completed">
+            <Text color="branca" size="md" weight="bold">
+              Concluído:
+            </Text>
+          </label>
           <input
             placeholder="a"
             type="checkbox"
@@ -96,8 +118,12 @@ function AlterForm() {
           />
         </div>
       ) : (
-        <div className="check">
-          <label htmlFor="completed">Concluído:</label>
+        <div className="input-wrapper" id="check-input">
+          <label htmlFor="completed">
+            <Text color="branca" size="md" weight="bold">
+              Concluído:
+            </Text>
+          </label>
           <input
             placeholder="a"
             type="checkbox"
@@ -109,10 +135,12 @@ function AlterForm() {
           />
         </div>
       )}
-      <Button type="submit" variant="primary">
-        atualizar Tarefa
-      </Button>
-    </form>
+      <div className="update-btn">
+        <Button type="submit" variant="primary">
+          atualizar tarefa
+        </Button>
+      </div>
+    </Container>
   );
 }
 

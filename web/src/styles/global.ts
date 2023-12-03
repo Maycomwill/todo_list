@@ -8,8 +8,11 @@ interface MyTheme extends DefaultTheme {
 
 export const TemaPadrao: MyTheme = {
   background: "#292F36",
+  tarefaBackground: "#424d59",
   text: "#F7FFF7",
   primary: "#4ECDC4",
+  delete:"#FF6B6B",
+  
 };
 
 const GlobalStyle = createGlobalStyle<ThemeProps<MyTheme>>`
@@ -24,8 +27,8 @@ const GlobalStyle = createGlobalStyle<ThemeProps<MyTheme>>`
   }
 
   body {
-    background: ${(MyTheme) => MyTheme.background};
-    color: ${(MyTheme) => MyTheme.text};;
+    background: ${TemaPadrao.background};
+    color: ${TemaPadrao.text};;
     overflow-x: hidden;
 
     /* width */

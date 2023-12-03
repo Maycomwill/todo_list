@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-import Tarefas from "../pages/Tarefas";
-import Criar from "../pages/Criar";
-import Alterar from "../pages/Alterar";
+import Home from "../pages/Home/Home";
+import Tarefas from "../pages/Tarefa/Tarefas";
+import Criar from "../pages/Criar/Criar";
+import Alterar from "../pages/Alterar/Alterar";
 
 export default function AppRoutes() {
   return (

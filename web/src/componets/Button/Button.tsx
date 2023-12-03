@@ -3,11 +3,12 @@ import { ButtonStyled } from "./styles";
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string;
-  variant: "primary" | "delete" 
+  variant: "primary" | "delete";
+  fontSize?: "md" | "lg" | "xl"
 }
 
-function Button({ children, variant, ...rest }: IButton) {
-  return <ButtonStyled variant={variant} {...rest}>{children}</ButtonStyled>;
+function Button({ children, variant, fontSize, ...rest }: IButton) {
+  return <ButtonStyled variant={variant} fontSize={fontSize} {...rest}>{children}</ButtonStyled>;
 }
 
 export default Button;

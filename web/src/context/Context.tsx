@@ -58,7 +58,7 @@ export function TodosContextProvider({ children }: { children: ReactNode }) {
     desc: string;
     done: boolean;
   }) {
-    await api.post("tarefas", {
+    await api.post("/tarefas", {
       nome,
       descricao: desc,
       concluido: done,
@@ -89,7 +89,7 @@ export function TodosContextProvider({ children }: { children: ReactNode }) {
       nome,
       descricao: desc,
       concluido: completed,
-      usuarioId: "c0c0ba2b-866f-424f-8869-f8eae106cacb",
+      usuarioId: "f7395c5b-ac46-4ee5-83a8-a392ee1e026d",
     });
   }
 

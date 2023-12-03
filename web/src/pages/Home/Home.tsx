@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../componets/Button/Button";
-import Text from "../componets/Text/Text";
+import Button from "../../componets/Button/Button";
+import Text from "../../componets/Text/Text";
 import { Container } from "./styles";
 import { useEffect } from "react";
-import { useTodos } from "../hooks/useTodos";
+import { useTodos } from "../../hooks/useTodos";
 
 export default function Home() {
   const navigate = useNavigate();
